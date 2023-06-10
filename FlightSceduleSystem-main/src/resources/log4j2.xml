@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!-- Simple console logger -->
+        <Console name="CONSOLE">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger - %msg%n"/>
+        </Console>
+
+        <File name="rootFile" fileName="logs/root.log">
+            <PatternLayout>
+                <pattern>[%d{MMM dd, yyyy HH:mm:ss,SSS}] %5p %c{2}.%M(%L) | %m%n</pattern>
+            </PatternLayout>
+        </File>
+
+    </Appenders>
+    <Loggers>
+        <logger name="com.flightschedule" level="info" includeLocation = "true" additivity="false">
+            <appender-ref ref="rootFile" />
+            <appender-ref ref="CONSOLE" />
+        </logger>
+
+        <Root level="info" name="com.flightschedule">
+            <AppenderRef ref="rootFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
